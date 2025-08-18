@@ -1,7 +1,7 @@
-# Password: Admin1234
+## Password is in .env doc ##
 from pymongo.mongo_client import MongoClient
 
-uri = "mongodb+srv://amitksingh3022:Admin1234@cluster0.pubawsf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+uri = "mongodb+srv://amitksingh3022:<db_password>@cluster0.pubawsf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 # Create a new client and connect to the server
 client = MongoClient(uri)
