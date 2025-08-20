@@ -1,0 +1,10 @@
+artifact_location: file:///D:/Python/Network%20Security/mlruns/0/models/m-4c227f3c04034c89ace794c63f771cb5/artifacts
+creation_timestamp: 1755721094837
+experiment_id: '0'
+last_updated_timestamp: 1755721098169
+model_id: m-4c227f3c04034c89ace794c63f771cb5
+model_type: null
+name: model
+source_run_id: ac69f9f9de0e4ad29f66c54dac0827fc
+status: 2
+status_message: null

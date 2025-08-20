@@ -1,0 +1,24 @@
+[ 2025-08-21 00:29:49,101 ] 19 root - INFO - Initiate the data ingestion
+[ 2025-08-21 00:29:53,285 ] 45 root - INFO - Connecting to database: AMITAI, collection: NetworkData
+[ 2025-08-21 00:29:55,263 ] 47 root - INFO - Total documents found in collection: 11055
+[ 2025-08-21 00:30:24,148 ] 64 root - INFO - DataFrame created with shape (11055, 31)
+[ 2025-08-21 00:30:24,185 ] 88 root - INFO - Performed train test split on the dataframe
+[ 2025-08-21 00:30:24,185 ] 90 root - INFO - Exited split_data_as_train_test method of Data_Ingestion class
+[ 2025-08-21 00:30:24,186 ] 98 root - INFO - Exporting train and test file path.
+[ 2025-08-21 00:30:24,219 ] 108 root - INFO - Exported train and test file path.
+[ 2025-08-21 00:30:24,219 ] 21 root - INFO - Data Ingestion Completed
+[ 2025-08-21 00:30:24,223 ] 26 root - INFO - Initiate the data validation
+[ 2025-08-21 00:30:24,278 ] 36 root - INFO - Required number of columns:2
+[ 2025-08-21 00:30:24,278 ] 37 root - INFO - Data Frame has columns: 31
+[ 2025-08-21 00:30:24,278 ] 36 root - INFO - Required number of columns:2
+[ 2025-08-21 00:30:24,279 ] 37 root - INFO - Data Frame has columns: 31
+[ 2025-08-21 00:30:24,381 ] 28 root - INFO - Data Validation Completed
+[ 2025-08-21 00:30:24,382 ] 33 root - INFO - Initiate the data transformation
+[ 2025-08-21 00:30:24,382 ] 67 root - INFO - Entered initiate data transformation method of DataTransformation class
+[ 2025-08-21 00:30:24,382 ] 69 root - INFO - Starting Data transformation
+[ 2025-08-21 00:30:24,401 ] 52 root - INFO - Entered get_data_transformer_object method of Transformation class
+[ 2025-08-21 00:30:24,401 ] 57 root - INFO - Initialise KNNImputer with {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+[ 2025-08-21 00:30:24,410 ] 49 root - INFO - Entered the save_object method of MainUtils class
+[ 2025-08-21 00:30:24,413 ] 53 root - INFO - Exited to save_object method of MainUtils class
+[ 2025-08-21 00:30:24,413 ] 35 root - INFO - Data Transformation Completed
+[ 2025-08-21 00:30:24,413 ] 39 root - INFO - Model Training started
