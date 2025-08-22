@@ -35,8 +35,6 @@ dagshub.init(repo_owner='amitksingh3022', repo_name='Network-Security', mlflow=T
 
 
 
-
-
 class ModelTrainer:
     def __init__(self, model_trainer_config:ModelTrainerConfig, data_transformation_artifact:DataTransformationArtifact):
         try:

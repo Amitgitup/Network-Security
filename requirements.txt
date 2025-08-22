@@ -12,6 +12,7 @@ dill
 MLFlow
 dagshub
 pyaml
+awscli
 
 
 ## -e .
