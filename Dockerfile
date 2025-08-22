@@ -7,14 +7,15 @@
 # RUN apt-get update && pip install -r requirements.txt
 # CMD ["python3", "app.py"]
 
-FROM python:3.10-slim-buster
+FROM python:3.10-slim-bullseye
 
 WORKDIR /app
 COPY . /app
 
-# Use apt-get consistently
+# Install AWS CLI + dependencies
 RUN apt-get update -y && apt-get install -y awscli
 
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 CMD ["python3", "app.py"]
