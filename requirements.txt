@@ -11,6 +11,7 @@ uvicorn
 dill
 MLFlow
 dagshub
+awscli
 pyaml
 awscli
 
