@@ -22,7 +22,17 @@ from sklearn.ensemble import (
     GradientBoostingClassifier
 )
 from xgboost import XGBClassifier
+
+from dotenv import load_dotenv
+load_dotenv()
+
 import mlflow   
+
+
+# DagsHub --> For Model Experimentation and tracking 
+import dagshub
+dagshub.init(repo_owner='amitksingh3022', repo_name='Network-Security', mlflow=True)
+
 
 
 
@@ -47,6 +57,9 @@ class ModelTrainer:
             mlflow.log_metric("precision", precision_score)
             mlflow.log_metric("recall_score", recall_score)
             mlflow.sklearn.log_model(best_model, "model")
+
+            ## Explicitly log the model file as artifact --> Can also log other files...
+            ## mlflow.log_artifact("best_model.pkl") 
                
 
 
@@ -69,15 +82,15 @@ class ModelTrainer:
             "Random Forest": {
                 # 'criterion': ['gini', 'entropy', 'log_loss'],
                 'max_features': ['sqrt', 'log2', None],
-                'n_estimators': [8, 16, 32, 64, 128, 256] 
+                'n_estimators': [8, 16, 64, 128, 256] 
             },
             "Gradient Boosting": {
                 # 'loss': ['log_loss', 'exponential'],
                 'learning_rate': [.1, .01, .05, .001],
-                'subsample': [0.6, 0.7, 0.75, 0.8, 0.85, 0.9],
+                'subsample': [0.6, 0.7, 0.8, 0.85, 0.9],
                 # 'criterion': ['squared_error', 'friedman_mse'],
                 # 'max_features': ['auto', 'sqrt', 'log2'],
-                'n_estimators': [8, 16, 32, 64, 128, 256]   
+                'n_estimators': [8, 16, 64, 128, 256]   
             },
             "Logistic Regression": {},
             "K Nearest Neighbors": {
@@ -120,10 +133,12 @@ class ModelTrainer:
         
         model_dir_path = os.path.dirname(self.model_trainer_config.trained_model_file_path)
         os.makedirs(model_dir_path, exist_ok=True)
-
         
         Network_Model = NetworkModel(preprocessor=preprocessor, model=best_model)
         save_object(self.model_trainer_config.trained_model_file_path, obj=Network_Model)
+        save_object("final_models/model.pkl", best_model)
+
+
 
         ## Model Trainer Artifact
         model_trainer_artifact = ModelTrainerArtifact(trained_model_file_path=self.model_trainer_config.trained_model_file_path,
